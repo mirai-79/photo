@@ -1,7 +1,8 @@
 'use strict';
 
 {
-
+ //Web Animations API
+  
   const items = document.querySelectorAll('.grid__item');
   const bigitem = document.querySelector('.item-big');
 
