@@ -1,0 +1,57 @@
+@use "../global" as g;
+
+/*!
+layout > header
+------------------------------
+*/
+.header {
+  position: relative;
+  // margin-bottom: .5rem;
+}
+.header__title {
+  font-size: 1.2rem;
+  @include g.mq() {
+      font-size: 2rem;
+  }
+}
+.header__name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  @include g.mq() {
+      font-size: 3rem;
+  }
+}
+.header__text {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 1;
+  color: var( --color-font-white);
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // align-items: flex-start;
+  // z-index: 2;
+  // text-align: left;
+  // width: 80vw;
+}
+// .header__pattern {
+//   position: absolute;
+//   z-index: 1;
+//   background-size: auto auto;
+//   background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, var(--color-bg-primary) 2px, var(--color-bg-primary) 4px );
+// }
+.youtube-wrap {
+  overflow-x: hidden;
+  background: url(/img/圧縮後_PC/DSC06793.JPG) no-repeat center center/cover;
+}
+.youtube {
+  object-fit: cover;
+  object-position: center top;
+
+  width: 100vw;
+  height: 90vh;
+  @include g.sp() {
+      height: 40vh;
+  }
+}

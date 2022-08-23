@@ -1,0 +1,29 @@
+// 
+// global > mixin
+// ------------------------------
+@mixin font-size($size) {
+  font-size: $size + px;
+  font-size: ($size / 16) * 1rem;
+}
+
+$hoverpoints: (
+    "hover": hover,
+    "none": none,
+);
+
+@mixin ho($hoverpoint: hover) {
+    @media (hover: #{map-get($hoverpoints, $hoverpoint)}) {
+        @content;
+    }
+}
+
+@mixin dark {
+    @media (prefers-color-scheme: dark) {
+        @content;
+    }
+}
+@mixin light {
+    @media (prefers-color-scheme: light) {
+        @content;
+    }
+}

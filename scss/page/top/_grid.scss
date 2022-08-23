@@ -1,0 +1,90 @@
+@use "../../global" as g;
+
+/*!
+page > top > grid
+------------------------------
+*/
+
+.grid {
+  padding-top: .5rem;
+  width: 94vw;
+  margin: 0 auto 3vw;
+  display: grid;
+  gap: 2vw;
+  grid-template-columns: repeat(2, 46vw);
+  grid-template-rows: repeat(7, 46vw);
+
+  @include g.mq() {
+    width: 80vw;
+    gap: 1vw;
+    grid-template-columns: repeat(3, 26vw);
+    grid-template-rows: repeat(6, 26vw);
+  }
+}
+
+.grid__item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+  transition: .3s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+// .grid__item.scale {
+//   transform: scale(1.1);
+// }
+.grid__gallery {
+  transition: .3s;
+}
+@include g.ho() {
+    .grid__gallery:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+    }
+}
+
+
+.grid__title {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  &--road {
+    background: radial-gradient(var(--color-bg-road) 10%, transparent 70%, var(--color-bg-primary));
+  }
+  &--food {
+    background: radial-gradient(var(--color-bg-food) 10%, transparent 70%, var(--color-bg-primary));
+  }
+  &--sightseeing {
+    background: radial-gradient(var(--color-bg-sightseeing) 10%, transparent 70%, var(--color-bg-primary));
+  }
+  @include g.mq() {
+    font-size: 3rem;
+  }
+  @include g.mq(xl) {
+      font-size: 4rem;
+  }
+}
+
+// .grid__title {
+//   font-size: 3rem;
+//   justify-self: center;
+//   align-self: center;
+// }
+.grid__gallery--top {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+
+.grid__gallery-bottom {
+  grid-column: 1/3;
+  grid-row: 7/8;
+
+  @include g.mq() {
+    grid-column: 1/4;
+    grid-row: 5/7;
+  }
+}

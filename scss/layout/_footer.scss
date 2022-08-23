@@ -1,0 +1,13 @@
+@use "../global" as g;
+
+/*!
+layout > footer
+------------------------------
+*/
+small {
+  display: block;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--color-font-base);
+  background-color: var(--color-bg-primary);
+}

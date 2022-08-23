@@ -1,0 +1,368 @@
+@charset "UTF-8";
+/*!
+global > color
+------------------------------
+*/
+:root {
+  --color-bg-primary: black;
+  --color-bg-road: #A0D8EA;
+  --color-bg-sightseeing: #AED6A2;
+  --color-bg-food: #E49536;
+  --color-font-base: #fff;
+}
+
+/*!
+global > font
+------------------------------
+*/
+:root {
+  --font-family-base: "Mochiy Pop P One", sans-serif;
+} /*  Googlefontはサブネット化しているので適宜読み込む文字を追加する */
+/*!
+foundation > reset
+------------------------------
+*/
+html {
+  color: #000;
+  background: #fff;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+fieldset,
+img {
+  border: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+caption,
+th {
+  text-align: left;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+q:before,
+q:after {
+  content: "";
+}
+
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  *font-size: 100%;
+  border-radius: 0;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: inherit;
+}
+
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+  display: block;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+}
+
+legend {
+  color: #000;
+}
+
+main {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+svg {
+  display: block;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*!
+foundation > base
+------------------------------
+*/
+body {
+  line-height: 1.8;
+  font-size: 16px;
+  color: var(--color-font-base);
+  font-family: var(--font-family-base);
+  background-color: var(--color-bg-primary);
+}
+
+/*!
+utility > utility
+------------------------------
+*/
+.u-visually-hidden {
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  padding: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  margin: -1px !important;
+}
+
+/*!
+layout > header
+------------------------------
+*/
+.header {
+  position: relative;
+}
+
+.header__title {
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 768px), print {
+  .header__title {
+    font-size: 2rem;
+  }
+}
+
+.header__name {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px), print {
+  .header__name {
+    font-size: 3rem;
+  }
+}
+
+.header__text {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  z-index: 1;
+  color: var(--color-font-white);
+}
+
+.youtube-wrap {
+  overflow-x: hidden;
+}
+
+.youtube {
+
+  object-fit: cover;
+  object-position: center top;
+  width: 100vw;
+  height: 90vh;
+}
+@media screen and (max-width: 767.98px) {
+  .youtube {
+    height: 40vh;
+  }
+}
+
+/*!
+layout > footer
+------------------------------
+*/
+small {
+  display: block;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--color-font-base);
+  background-color: var(--color-bg-primary);
+}
+
+/*!
+page > top > grid
+------------------------------
+*/
+.grid {
+  padding-top: 0.5rem;
+  width: 94vw;
+  margin: 0 auto 3vw;
+  display: grid;
+  gap: 2vw;
+  grid-template-columns: repeat(2, 46vw);
+  grid-template-rows: repeat(7, 46vw);
+}
+@media screen and (min-width: 768px), print {
+  .grid {
+    width: 80vw;
+    gap: 1vw;
+    grid-template-columns: repeat(3, 26vw);
+    grid-template-rows: repeat(6, 26vw);
+  }
+}
+
+.grid__item {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+  transition: 0.3s;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.grid__gallery {
+  transition: 0.3s;
+}
+
+@media (hover: hover) {
+  .grid__gallery:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  }
+}
+.grid__title {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.grid__title--road {
+  background: radial-gradient(var(--color-bg-road) 10%, transparent 70%, var(--color-bg-primary));
+}
+.grid__title--food {
+  background: radial-gradient(var(--color-bg-food) 10%, transparent 70%, var(--color-bg-primary));
+}
+.grid__title--sightseeing {
+  background: radial-gradient(var(--color-bg-sightseeing) 10%, transparent 70%, var(--color-bg-primary));
+}
+@media screen and (min-width: 768px), print {
+  .grid__title {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 1200px), print {
+  .grid__title {
+    font-size: 4rem;
+  }
+}
+
+.grid__gallery--top {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+
+.grid__gallery-bottom {
+  grid-column: 1/3;
+  grid-row: 7/8;
+}
+@media screen and (min-width: 768px), print {
+  .grid__gallery-bottom {
+    grid-column: 1/4;
+    grid-row: 5/7;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
